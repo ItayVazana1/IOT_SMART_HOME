@@ -1,23 +1,16 @@
-"""
-Project: IoT Smart Home
-File: room_view_tab.py
-Updated: 2025-05-31 🕒
-
-Description:
-UI module for the RoomViewTab screen.
-Displays a visual layout of a room and real-time statuses of IoT devices.
-"""
-
 from PyQt5.QtWidgets import (
     QWidget, QLabel, QVBoxLayout, QHBoxLayout, QGridLayout, QFrame, QSizePolicy
 )
 from PyQt5.QtCore import Qt
 from iot_app.app.ui.theme import COLORS, get_font, SIZES
+from iot_app.app.utils.logger import logger
 
 
 class RoomViewTab(QWidget):
-    def __init__(self):
+    def __init__(self, db_client, mqtt_client):
         super().__init__()
+        self.db = db_client
+        self.mqtt = mqtt_client
         self.device_boxes = {}  # Holds references to update states later
         self.reading_labels = {}  # Holds references to reading displays
         self.init_ui()
@@ -38,12 +31,12 @@ class RoomViewTab(QWidget):
         left_layout.addWidget(title, alignment=Qt.AlignLeft)
 
         # Add static status labels (simulated)
-        for name in ["Door", "Light", "Motion", "DHT", "Relay"]:
+        for name in ["Door Bell", "Light", "Motion", "DHT", "Relay"]:
             label = QLabel(f"{name}: 🔄 Waiting...")
             label.setFont(get_font("normal"))
             label.setStyleSheet(f"color: {COLORS['text_secondary']};")
+            self.reading_labels[name.lower().replace(" ", "")] = label
             left_layout.addWidget(label)
-            self.reading_labels[name.lower()] = label
 
         left_layout.addStretch()
         left_panel.setLayout(left_layout)
@@ -56,7 +49,7 @@ class RoomViewTab(QWidget):
 
         # Device positions
         positions = {
-            (0, 0): ("🚪 Door", "door"),
+            (0, 0): ("🔔 Door Bell", "doorbell"),
             (0, 2): ("💡 Light", "light"),
             (1, 1): ("🧍 Motion", "motion"),
             (2, 0): ("🌡️ DHT", "dht"),
@@ -71,7 +64,7 @@ class RoomViewTab(QWidget):
             text = QLabel(label)
             text.setFont(get_font("normal", bold=True))
             text.setAlignment(Qt.AlignCenter)
-            text.setStyleSheet("color: black;")
+            text.setStyleSheet("color: white; border: none;")
 
             inner_layout = QVBoxLayout()
             inner_layout.addStretch()
@@ -94,8 +87,8 @@ class RoomViewTab(QWidget):
     def _style_inactive(self):
         return """
             QFrame {
-                background-color: white;
-                border: 2px solid #999;
+                background-color: #1a1a1a;
+                border: 2px solid #444;
                 border-radius: 8px;
             }
         """
@@ -112,13 +105,31 @@ class RoomViewTab(QWidget):
     def update_device_state(self, device_key: str, active: bool, reading: str = None):
         """
         Update the visual state of a device in the room.
-        :param device_key: "door", "light", etc.
-        :param active: True = green box, False = white
+        :param device_key: "doorbell", "light", etc.
+        :param active: True = green box, False = dark box
         :param reading: Optional text to update on the left
         """
+        changed = False
+
         if device_key in self.device_boxes:
-            style = self._style_active() if active else self._style_inactive()
-            self.device_boxes[device_key].setStyleSheet(style)
+            box = self.device_boxes[device_key]
+            current_style = box.styleSheet()
+            new_style = self._style_active() if active else self._style_inactive()
+            if current_style != new_style:
+                box.setStyleSheet(new_style)
+                changed = True
 
         if reading is not None and device_key in self.reading_labels:
-            self.reading_labels[device_key].setText(f"{device_key.capitalize()}: {reading}")
+            label = self.reading_labels[device_key]
+            current_text = label.text()
+            new_text = f"{device_key.capitalize()}: {reading}"
+            if current_text != new_text:
+                label.setText(new_text)
+                changed = True
+
+        if changed:
+            log_msg = f"[ROOM] {device_key.capitalize()} updated"
+            log_msg += f" → State: {'ON' if active else 'OFF'}"
+            if reading:
+                log_msg += f", Reading: {reading}"
+            logger.info(log_msg)

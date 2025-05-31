@@ -1,24 +1,17 @@
-"""
-Project: IoT Smart Home
-File: settings_tab.py
-Updated: 2025-05-31 🕒
-
-Description:
-Clean and centered settings tab without boxes.
-Displays MQTT & DB info, exit button, and developer credits.
-"""
-
 from PyQt5.QtWidgets import (
     QWidget, QLabel, QPushButton, QVBoxLayout, QMessageBox
 )
 from PyQt5.QtCore import Qt
 from iot_app.app.ui.theme import COLORS, SIZES, get_font
+from iot_app.app.utils.logger import logger  # ✅ Import centralized logger
 import sys
 
 
 class SettingsTab(QWidget):
-    def __init__(self):
+    def __init__(self, db_client, mqtt_client):
         super().__init__()
+        self.db = db_client
+        self.mqtt = mqtt_client
         self._build_ui()
 
     def _build_ui(self):
@@ -98,10 +91,19 @@ class SettingsTab(QWidget):
         return btn
 
     def _handle_reconnect(self):
-        QMessageBox.information(self, "Reconnect", "Reconnecting to MQTT broker...")
+        logger.info("[SETTINGS] Reconnecting to MQTT broker...")
+        if self.mqtt:
+            self.mqtt.reconnect()
+            QMessageBox.information(self, "Reconnect", "Reconnection attempted.")
+        else:
+            QMessageBox.warning(self, "Reconnect", "MQTT client not available.")
 
     def _handle_test_db(self):
-        QMessageBox.information(self, "Database", "DB connection successful ✔")
+        logger.info("[SETTINGS] Testing connection to database...")
+        if self.db and self.db.test_connection():
+            QMessageBox.information(self, "Database", "DB connection successful ✔")
+        else:
+            QMessageBox.critical(self, "Database", "DB connection failed ✖")
 
     def _handle_exit(self):
         reply = QMessageBox.question(self, "Exit App", "Are you sure you want to exit?",

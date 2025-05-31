@@ -15,12 +15,16 @@ from PyQt5.QtWidgets import (
 from PyQt5.QtCore import Qt
 from datetime import datetime
 from iot_app.app.ui.theme import COLORS, get_font, SIZES
+from iot_app.app.utils.logger import logger, add_gui_sink  # ✅ Import centralized logger and sink connector
 
 
 class LogsTab(QWidget):
     def __init__(self):
         super().__init__()
         self.init_ui()
+
+        # ✅ Connect GUI log sink to the shared logger
+        add_gui_sink(self._loguru_sink)
 
     def init_ui(self):
         self.setStyleSheet(f"""
@@ -55,7 +59,6 @@ class LogsTab(QWidget):
         buttons_layout = QHBoxLayout()
         buttons_layout.addStretch()
 
-        # Unified button style with hover/press/disabled effects
         button_style = f"""
             QPushButton {{
                 background-color: {COLORS['border']};
@@ -76,14 +79,12 @@ class LogsTab(QWidget):
             }}
         """
 
-        # Clear Button
         self.clear_button = QPushButton("🧹 Clear Logs")
         self.clear_button.setStyleSheet(button_style)
         self.clear_button.clicked.connect(self.clear_logs)
         self.clear_button.setEnabled(False)
         buttons_layout.addWidget(self.clear_button)
 
-        # Save Button
         self.save_button = QPushButton("💾 Save to File")
         self.save_button.setStyleSheet(button_style)
         self.save_button.clicked.connect(self.save_logs)
@@ -91,14 +92,13 @@ class LogsTab(QWidget):
         buttons_layout.addWidget(self.save_button)
 
         layout.addLayout(buttons_layout)
-
         self.setLayout(layout)
 
     def append_log(self, message: str):
         timestamp = datetime.now().strftime("%H:%M:%S")
         full_msg = f"[{timestamp}] {message}"
 
-        # Color by log level
+        # Color-code based on severity level
         if "[ERROR]" in message:
             color = COLORS["error"]
         elif "[WARNING]" in message:
@@ -111,9 +111,12 @@ class LogsTab(QWidget):
         self.log_console.append(f'<span style="color:{color}">{full_msg}</span>')
         self.log_console.moveCursor(self.log_console.textCursor().End)
 
-        # Enable buttons if needed
         self.clear_button.setEnabled(True)
         self.save_button.setEnabled(True)
+
+    def _loguru_sink(self, message):
+        """ Custom Loguru sink function for GUI """
+        self.append_log(message.strip())
 
     def clear_logs(self):
         self.log_console.clear()
@@ -125,3 +128,4 @@ class LogsTab(QWidget):
         if path:
             with open(path, 'w', encoding='utf-8') as file:
                 file.write(self.log_console.toPlainText())
+            logger.info(f"[LOGS] Logs exported to '{path}'")

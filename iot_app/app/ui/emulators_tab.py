@@ -4,19 +4,22 @@ from PyQt5.QtWidgets import (
 )
 from PyQt5.QtCore import Qt
 from iot_app.app.ui.theme import COLORS, get_font, SIZES, FONT_SIZES
+from iot_app.app.utils.logger import logger  # ✅ Logger import
 
 EMULATORS = [
-    {"name": "DHT Sensor", "icon": "🌡️"},
-    {"name": "Light Sensor", "icon": "💡"},
-    {"name": "Motion Sensor", "icon": "🎯"},
-    {"name": "Button", "icon": "🔘"},
-    {"name": "Relay", "icon": "🔌"},
+    {"name": "DHT Sensor", "icon": "🌡️", "topic": "group42/dht"},
+    {"name": "Light Sensor", "icon": "💡", "topic": "group42/light"},
+    {"name": "Motion Sensor", "icon": "🧍", "topic": "group42/motion"},
+    {"name": "Door Bell (Button)", "icon": "🔔", "topic": "group42/button"},
+    {"name": "Relay", "icon": "🔌", "topic": "group42/relay"},
 ]
 
 
 class EmulatorsTab(QWidget):
-    def __init__(self):
+    def __init__(self, db_client, mqtt_client):
         super().__init__()
+        self.db = db_client
+        self.mqtt = mqtt_client
         self.setStyleSheet(f"background-color: {COLORS['background']}; color: {COLORS['text']};")
         self.grid = QGridLayout()
         self._build_ui()
@@ -52,10 +55,14 @@ class EmulatorsTab(QWidget):
 
         for idx, emulator in enumerate(EMULATORS):
             row, col = divmod(idx, columns)
-            card = self._build_emulator_card(emulator["name"], emulator["icon"])
+            card = self._build_emulator_card(emulator)
             self.grid.addWidget(card, row, col)
 
-    def _build_emulator_card(self, name, icon):
+    def _build_emulator_card(self, emulator):
+        name = emulator["name"]
+        icon = emulator["icon"]
+        topic = emulator["topic"]
+
         frame = QFrame()
         frame.setStyleSheet(f"""
             QFrame {{
@@ -79,12 +86,13 @@ class EmulatorsTab(QWidget):
         title_label.setStyleSheet("border: none;")
         title_label.setAlignment(Qt.AlignCenter)
 
-        if name == "Button":
+        if "Button" in name:
             press_btn = QPushButton("Press")
             press_btn.setFixedWidth(160)
             press_btn.setStyleSheet(self._press_button_style(False))
-            press_btn.pressed.connect(lambda: press_btn.setStyleSheet(self._press_button_style(True)))
-            press_btn.released.connect(lambda: press_btn.setStyleSheet(self._press_button_style(False)))
+            press_btn.pressed.connect(lambda: self._on_button_pressed(press_btn, topic))
+            press_btn.released.connect(lambda: self._on_button_released(press_btn))
+
             layout.addWidget(icon_label)
             layout.addWidget(title_label)
             layout.addStretch()
@@ -106,8 +114,8 @@ class EmulatorsTab(QWidget):
             start_btn.setStyleSheet(self._alt_button_style("black", "white"))
             stop_btn.setStyleSheet(self._alt_button_style("white", "black"))
 
-            start_btn.clicked.connect(lambda: self._set_status(status_label, "ON", True))
-            stop_btn.clicked.connect(lambda: self._set_status(status_label, "OFF", False))
+            start_btn.clicked.connect(lambda: self._on_start_clicked(name, topic, status_label))
+            stop_btn.clicked.connect(lambda: self._on_stop_clicked(name, topic, status_label))
 
             btn_layout.addWidget(start_btn)
             btn_layout.addWidget(stop_btn)
@@ -115,6 +123,27 @@ class EmulatorsTab(QWidget):
 
         frame.setLayout(layout)
         return frame
+
+    def _on_start_clicked(self, name, topic, label):
+        logger.info(f"[EMULATOR] '{name}' started")
+        self._set_status(label, "ON", True)
+        if self.mqtt:
+            self.mqtt.publish(topic, "start")
+
+    def _on_stop_clicked(self, name, topic, label):
+        logger.info(f"[EMULATOR] '{name}' stopped")
+        self._set_status(label, "OFF", False)
+        if self.mqtt:
+            self.mqtt.publish(topic, "stop")
+
+    def _on_button_pressed(self, button, topic):
+        button.setStyleSheet(self._press_button_style(True))
+        logger.info(f"[EMULATOR] button pressed")
+        if self.mqtt:
+            self.mqtt.publish(topic, "pressed")
+
+    def _on_button_released(self, button):
+        button.setStyleSheet(self._press_button_style(False))
 
     def _set_status(self, label, text, is_on):
         color = "#10b981" if is_on else "#ef4444"
