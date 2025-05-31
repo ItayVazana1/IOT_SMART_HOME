@@ -1,0 +1,286 @@
+2025-06-01 01:41:16 | INFO     | iot_app.app.core.mqtt_client:start:81 - [MQTT] Attempting to connect to localhost:1883...
+2025-06-01 01:41:16 | SUCCESS  | iot_app.app.core.mqtt_client:_on_connect:51 - [MQTT] Connected to broker at localhost:1883
+2025-06-01 01:41:16 | INFO     | iot_app.app.core.mqtt_client:_on_connect:54 - [MQTT] Subscribed to topic: Home/#
+2025-06-01 01:41:18 | INFO     | iot_app.app.core.db_client:connect:47 - [DB] Connecting to MySQL at localhost:3307...
+2025-06-01 01:41:18 | SUCCESS  | iot_app.app.core.db_client:connect:57 - [DB] Connected to MySQL database ✔
+2025-06-01 01:41:18 | INFO     | __main__:_finalize_tabs:134 - 🚀 System initialized and GUI loaded.
+2025-06-01 01:41:18 | SUCCESS  | iot_app.app.core.mqtt_client:test_connection:146 - [MQTT] Ping successful ✔
+2025-06-01 01:41:18 | SUCCESS  | iot_app.app.core.db_client:test_connection:147 - [DB] Ping successful ✔
+2025-06-01 01:42:00 | INFO     | iot_app.app.ui.emulators_tab:_on_button_pressed:209 - [EMULATOR] button pressed
+2025-06-01 01:42:00 | INFO     | iot_app.app.core.mqtt_client:publish:123 - [MQTT] Published to 'Home/button': pressed
+2025-06-01 01:42:00 | INFO     | iot_app.app.core.db_client:insert_sensor_data:96 - [DB] Inserted: button | pressed | 2025-06-01 01:42:00.692748
+2025-06-01 01:42:00 | INFO     | iot_app.app.ui.room_view_tab:update_device_state:247 - [ROOM] doorbell updated → ON, Reading: Pressed (7)
+2025-06-01 01:42:01 | INFO     | iot_app.app.ui.room_view_tab:update_device_state:247 - [ROOM] doorbell updated → ON, Reading: Pressed (6)
+2025-06-01 01:42:02 | INFO     | iot_app.app.ui.room_view_tab:update_device_state:247 - [ROOM] doorbell updated → ON, Reading: Pressed (5)
+2025-06-01 01:42:03 | INFO     | iot_app.app.ui.room_view_tab:update_device_state:247 - [ROOM] doorbell updated → ON, Reading: Pressed (4)
+2025-06-01 01:42:04 | INFO     | iot_app.app.ui.room_view_tab:update_device_state:247 - [ROOM] doorbell updated → ON, Reading: Pressed (3)
+2025-06-01 01:42:05 | INFO     | iot_app.app.ui.room_view_tab:update_device_state:247 - [ROOM] doorbell updated → ON, Reading: Pressed (2)
+2025-06-01 01:42:06 | INFO     | iot_app.app.ui.room_view_tab:update_device_state:247 - [ROOM] doorbell updated → ON, Reading: Pressed (1)
+2025-06-01 01:42:07 | INFO     | iot_app.app.core.mqtt_client:publish:123 - [MQTT] Published to 'Home/button': idle
+2025-06-01 01:42:07 | INFO     | iot_app.app.ui.room_view_tab:update_device_state:247 - [ROOM] doorbell updated → OFF, Reading: -
+2025-06-01 01:42:18 | SUCCESS  | iot_app.app.core.db_client:test_connection:147 - [DB] Ping successful ✔
+2025-06-01 01:42:18 | SUCCESS  | iot_app.app.core.mqtt_client:test_connection:146 - [MQTT] Ping successful ✔
+2025-06-01 01:42:18 | SUCCESS  | iot_app.app.core.db_client:test_connection:147 - [DB] Ping successful ✔
+2025-06-01 01:42:23 | INFO     | iot_app.app.ui.emulators_tab:_on_start_clicked:179 - [EMULATOR] 'DHT Sensor' started
+2025-06-01 01:42:23 | INFO     | iot_app.app.core.mqtt_client:publish:123 - [MQTT] Published to 'Home/dht': {"temperature": "27.1 \u00b0C", "humidity": "32.6 %"}
+2025-06-01 01:42:23 | INFO     | iot_app.app.ui.room_view_tab:update_device_state:247 - [ROOM] dht updated → ON, Reading: 27.1 °C, 32.6 %
+2025-06-01 01:42:23 | INFO     | iot_app.app.core.db_client:insert_sensor_data:96 - [DB] Inserted: dht | {'temperature': '27.1 °C', 'humidity': '32.6 %'} | 2025-06-01 01:42:23.765165
+2025-06-01 01:42:23 | INFO     | iot_app.app.emulators.base_emulator:turn_on:56 - [Emulator] dht turned ON
+2025-06-01 01:42:24 | INFO     | iot_app.app.ui.emulators_tab:_on_start_clicked:179 - [EMULATOR] 'Light Sensor' started
+2025-06-01 01:42:24 | INFO     | iot_app.app.core.mqtt_client:publish:123 - [MQTT] Published to 'Home/light': 718 lx
+2025-06-01 01:42:24 | INFO     | iot_app.app.ui.room_view_tab:update_device_state:247 - [ROOM] light updated → ON, Reading: 718 lx
+2025-06-01 01:42:24 | INFO     | iot_app.app.core.db_client:insert_sensor_data:96 - [DB] Inserted: light | 718 lx | 2025-06-01 01:42:24.816060
+2025-06-01 01:42:24 | INFO     | iot_app.app.emulators.base_emulator:turn_on:56 - [Emulator] light turned ON
+2025-06-01 01:42:26 | INFO     | iot_app.app.core.mqtt_client:publish:123 - [MQTT] Published to 'Home/light': 122 lx
+2025-06-01 01:42:26 | INFO     | iot_app.app.ui.room_view_tab:update_device_state:247 - [ROOM] light updated → ON, Reading: 122 lx
+2025-06-01 01:42:26 | INFO     | iot_app.app.core.db_client:insert_sensor_data:96 - [DB] Inserted: light | 122 lx | 2025-06-01 01:42:26.808242
+2025-06-01 01:42:28 | INFO     | iot_app.app.core.mqtt_client:publish:123 - [MQTT] Published to 'Home/dht': {"temperature": "20.0 \u00b0C", "humidity": "58.5 %"}
+2025-06-01 01:42:28 | INFO     | iot_app.app.ui.room_view_tab:update_device_state:247 - [ROOM] dht updated → ON, Reading: 20.0 °C, 58.5 %
+2025-06-01 01:42:28 | INFO     | iot_app.app.core.db_client:insert_sensor_data:96 - [DB] Inserted: dht | {'temperature': '20.0 °C', 'humidity': '58.5 %'} | 2025-06-01 01:42:28.759547
+2025-06-01 01:42:28 | INFO     | iot_app.app.core.mqtt_client:publish:123 - [MQTT] Published to 'Home/light': 79 lx
+2025-06-01 01:42:28 | INFO     | iot_app.app.ui.room_view_tab:update_device_state:247 - [ROOM] light updated → ON, Reading: 79 lx
+2025-06-01 01:42:28 | INFO     | iot_app.app.core.db_client:insert_sensor_data:96 - [DB] Inserted: light | 79 lx | 2025-06-01 01:42:28.845815
+2025-06-01 01:42:30 | INFO     | iot_app.app.core.mqtt_client:publish:123 - [MQTT] Published to 'Home/light': 750 lx
+2025-06-01 01:42:30 | INFO     | iot_app.app.ui.room_view_tab:update_device_state:247 - [ROOM] light updated → ON, Reading: 750 lx
+2025-06-01 01:42:30 | INFO     | iot_app.app.core.db_client:insert_sensor_data:96 - [DB] Inserted: light | 750 lx | 2025-06-01 01:42:30.810671
+2025-06-01 01:42:32 | INFO     | iot_app.app.core.mqtt_client:publish:123 - [MQTT] Published to 'Home/light': 74 lx
+2025-06-01 01:42:32 | INFO     | iot_app.app.ui.room_view_tab:update_device_state:247 - [ROOM] light updated → ON, Reading: 74 lx
+2025-06-01 01:42:32 | INFO     | iot_app.app.core.db_client:insert_sensor_data:96 - [DB] Inserted: light | 74 lx | 2025-06-01 01:42:32.808239
+2025-06-01 01:42:33 | INFO     | iot_app.app.core.mqtt_client:publish:123 - [MQTT] Published to 'Home/dht': {"temperature": "29.6 \u00b0C", "humidity": "47.4 %"}
+2025-06-01 01:42:33 | INFO     | iot_app.app.ui.room_view_tab:update_device_state:247 - [ROOM] dht updated → ON, Reading: 29.6 °C, 47.4 %
+2025-06-01 01:42:33 | INFO     | iot_app.app.core.db_client:insert_sensor_data:96 - [DB] Inserted: dht | {'temperature': '29.6 °C', 'humidity': '47.4 %'} | 2025-06-01 01:42:33.759735
+2025-06-01 01:42:34 | INFO     | iot_app.app.core.mqtt_client:publish:123 - [MQTT] Published to 'Home/light': 502 lx
+2025-06-01 01:42:34 | INFO     | iot_app.app.ui.room_view_tab:update_device_state:247 - [ROOM] light updated → ON, Reading: 502 lx
+2025-06-01 01:42:34 | INFO     | iot_app.app.core.db_client:insert_sensor_data:96 - [DB] Inserted: light | 502 lx | 2025-06-01 01:42:34.808951
+2025-06-01 01:42:36 | INFO     | iot_app.app.core.mqtt_client:publish:123 - [MQTT] Published to 'Home/light': 684 lx
+2025-06-01 01:42:36 | INFO     | iot_app.app.ui.room_view_tab:update_device_state:247 - [ROOM] light updated → ON, Reading: 684 lx
+2025-06-01 01:42:36 | INFO     | iot_app.app.core.db_client:insert_sensor_data:96 - [DB] Inserted: light | 684 lx | 2025-06-01 01:42:36.809708
+2025-06-01 01:42:38 | INFO     | iot_app.app.core.mqtt_client:publish:123 - [MQTT] Published to 'Home/dht': {"temperature": "31.9 \u00b0C", "humidity": "56.2 %"}
+2025-06-01 01:42:38 | INFO     | iot_app.app.ui.room_view_tab:update_device_state:247 - [ROOM] dht updated → ON, Reading: 31.9 °C, 56.2 %
+2025-06-01 01:42:38 | INFO     | iot_app.app.core.db_client:insert_sensor_data:96 - [DB] Inserted: dht | {'temperature': '31.9 °C', 'humidity': '56.2 %'} | 2025-06-01 01:42:38.761559
+2025-06-01 01:42:38 | INFO     | iot_app.app.core.mqtt_client:publish:123 - [MQTT] Published to 'Home/light': 72 lx
+2025-06-01 01:42:38 | INFO     | iot_app.app.ui.room_view_tab:update_device_state:247 - [ROOM] light updated → ON, Reading: 72 lx
+2025-06-01 01:42:38 | INFO     | iot_app.app.core.db_client:insert_sensor_data:96 - [DB] Inserted: light | 72 lx | 2025-06-01 01:42:38.811262
+2025-06-01 01:42:40 | INFO     | iot_app.app.core.mqtt_client:publish:123 - [MQTT] Published to 'Home/light': 211 lx
+2025-06-01 01:42:40 | INFO     | iot_app.app.ui.room_view_tab:update_device_state:247 - [ROOM] light updated → ON, Reading: 211 lx
+2025-06-01 01:42:40 | INFO     | iot_app.app.core.db_client:insert_sensor_data:96 - [DB] Inserted: light | 211 lx | 2025-06-01 01:42:40.807450
+2025-06-01 01:42:42 | INFO     | iot_app.app.core.mqtt_client:publish:123 - [MQTT] Published to 'Home/light': 542 lx
+2025-06-01 01:42:42 | INFO     | iot_app.app.ui.room_view_tab:update_device_state:247 - [ROOM] light updated → ON, Reading: 542 lx
+2025-06-01 01:42:42 | INFO     | iot_app.app.core.db_client:insert_sensor_data:96 - [DB] Inserted: light | 542 lx | 2025-06-01 01:42:42.809506
+2025-06-01 01:42:43 | INFO     | iot_app.app.core.mqtt_client:publish:123 - [MQTT] Published to 'Home/dht': {"temperature": "25.4 \u00b0C", "humidity": "79.9 %"}
+2025-06-01 01:42:43 | INFO     | iot_app.app.ui.room_view_tab:update_device_state:247 - [ROOM] dht updated → ON, Reading: 25.4 °C, 79.9 %
+2025-06-01 01:42:43 | INFO     | iot_app.app.core.db_client:insert_sensor_data:96 - [DB] Inserted: dht | {'temperature': '25.4 °C', 'humidity': '79.9 %'} | 2025-06-01 01:42:43.761312
+2025-06-01 01:42:44 | INFO     | iot_app.app.core.mqtt_client:publish:123 - [MQTT] Published to 'Home/light': 523 lx
+2025-06-01 01:42:44 | INFO     | iot_app.app.ui.room_view_tab:update_device_state:247 - [ROOM] light updated → ON, Reading: 523 lx
+2025-06-01 01:42:44 | INFO     | iot_app.app.core.db_client:insert_sensor_data:96 - [DB] Inserted: light | 523 lx | 2025-06-01 01:42:44.812990
+2025-06-01 01:42:46 | INFO     | iot_app.app.core.mqtt_client:publish:123 - [MQTT] Published to 'Home/light': 748 lx
+2025-06-01 01:42:46 | INFO     | iot_app.app.ui.room_view_tab:update_device_state:247 - [ROOM] light updated → ON, Reading: 748 lx
+2025-06-01 01:42:46 | INFO     | iot_app.app.core.db_client:insert_sensor_data:96 - [DB] Inserted: light | 748 lx | 2025-06-01 01:42:46.808070
+2025-06-01 01:42:48 | SUCCESS  | iot_app.app.core.db_client:test_connection:147 - [DB] Ping successful ✔
+2025-06-01 01:42:48 | SUCCESS  | iot_app.app.core.mqtt_client:test_connection:146 - [MQTT] Ping successful ✔
+2025-06-01 01:42:48 | SUCCESS  | iot_app.app.core.db_client:test_connection:147 - [DB] Ping successful ✔
+2025-06-01 01:42:48 | INFO     | iot_app.app.core.mqtt_client:publish:123 - [MQTT] Published to 'Home/dht': {"temperature": "24.9 \u00b0C", "humidity": "83.2 %"}
+2025-06-01 01:42:48 | INFO     | iot_app.app.ui.room_view_tab:update_device_state:247 - [ROOM] dht updated → ON, Reading: 24.9 °C, 83.2 %
+2025-06-01 01:42:48 | INFO     | iot_app.app.core.db_client:insert_sensor_data:96 - [DB] Inserted: dht | {'temperature': '24.9 °C', 'humidity': '83.2 %'} | 2025-06-01 01:42:48.760303
+2025-06-01 01:42:48 | INFO     | iot_app.app.core.mqtt_client:publish:123 - [MQTT] Published to 'Home/light': 617 lx
+2025-06-01 01:42:48 | INFO     | iot_app.app.ui.room_view_tab:update_device_state:247 - [ROOM] light updated → ON, Reading: 617 lx
+2025-06-01 01:42:48 | INFO     | iot_app.app.core.db_client:insert_sensor_data:96 - [DB] Inserted: light | 617 lx | 2025-06-01 01:42:48.810483
+2025-06-01 01:42:50 | INFO     | iot_app.app.core.mqtt_client:publish:123 - [MQTT] Published to 'Home/light': 762 lx
+2025-06-01 01:42:50 | INFO     | iot_app.app.ui.room_view_tab:update_device_state:247 - [ROOM] light updated → ON, Reading: 762 lx
+2025-06-01 01:42:50 | INFO     | iot_app.app.core.db_client:insert_sensor_data:96 - [DB] Inserted: light | 762 lx | 2025-06-01 01:42:50.808473
+2025-06-01 01:42:52 | INFO     | iot_app.app.core.mqtt_client:publish:123 - [MQTT] Published to 'Home/light': 919 lx
+2025-06-01 01:42:52 | INFO     | iot_app.app.ui.room_view_tab:update_device_state:247 - [ROOM] light updated → ON, Reading: 919 lx
+2025-06-01 01:42:52 | INFO     | iot_app.app.core.db_client:insert_sensor_data:96 - [DB] Inserted: light | 919 lx | 2025-06-01 01:42:52.808989
+2025-06-01 01:42:53 | INFO     | iot_app.app.core.mqtt_client:publish:123 - [MQTT] Published to 'Home/dht': {"temperature": "30.9 \u00b0C", "humidity": "89.1 %"}
+2025-06-01 01:42:53 | INFO     | iot_app.app.ui.room_view_tab:update_device_state:247 - [ROOM] dht updated → ON, Reading: 30.9 °C, 89.1 %
+2025-06-01 01:42:53 | INFO     | iot_app.app.core.db_client:insert_sensor_data:96 - [DB] Inserted: dht | {'temperature': '30.9 °C', 'humidity': '89.1 %'} | 2025-06-01 01:42:53.760665
+2025-06-01 01:42:54 | INFO     | iot_app.app.core.mqtt_client:publish:123 - [MQTT] Published to 'Home/light': 486 lx
+2025-06-01 01:42:54 | INFO     | iot_app.app.ui.room_view_tab:update_device_state:247 - [ROOM] light updated → ON, Reading: 486 lx
+2025-06-01 01:42:54 | INFO     | iot_app.app.core.db_client:insert_sensor_data:96 - [DB] Inserted: light | 486 lx | 2025-06-01 01:42:54.807731
+2025-06-01 01:42:56 | INFO     | iot_app.app.core.mqtt_client:publish:123 - [MQTT] Published to 'Home/light': 224 lx
+2025-06-01 01:42:56 | INFO     | iot_app.app.ui.room_view_tab:update_device_state:247 - [ROOM] light updated → ON, Reading: 224 lx
+2025-06-01 01:42:56 | INFO     | iot_app.app.core.db_client:insert_sensor_data:96 - [DB] Inserted: light | 224 lx | 2025-06-01 01:42:56.808244
+2025-06-01 01:42:57 | INFO     | iot_app.app.ui.emulators_tab:_on_start_clicked:179 - [EMULATOR] 'Motion Sensor' started
+2025-06-01 01:42:57 | INFO     | iot_app.app.core.mqtt_client:publish:123 - [MQTT] Published to 'Home/motion': motion detected
+2025-06-01 01:42:57 | INFO     | iot_app.app.ui.room_view_tab:update_device_state:247 - [ROOM] motion updated → ON, Reading: motion detected
+2025-06-01 01:42:57 | INFO     | iot_app.app.core.db_client:insert_sensor_data:96 - [DB] Inserted: motion | motion detected | 2025-06-01 01:42:57.501554
+2025-06-01 01:42:57 | INFO     | iot_app.app.emulators.base_emulator:turn_on:56 - [Emulator] motion turned ON
+2025-06-01 01:42:58 | INFO     | iot_app.app.ui.emulators_tab:_on_start_clicked:179 - [EMULATOR] 'Relay' started
+2025-06-01 01:42:58 | INFO     | iot_app.app.core.mqtt_client:publish:123 - [MQTT] Published to 'Home/relay': 1
+2025-06-01 01:42:58 | INFO     | iot_app.app.ui.room_view_tab:update_device_state:247 - [ROOM] relay updated → ON, Reading: ON
+2025-06-01 01:42:58 | INFO     | iot_app.app.core.db_client:insert_sensor_data:96 - [DB] Inserted: relay | 1 | 2025-06-01 01:42:58.575709
+2025-06-01 01:42:58 | INFO     | iot_app.app.core.mqtt_client:publish:123 - [MQTT] Published to 'Home/dht': {"temperature": "21.9 \u00b0C", "humidity": "37.1 %"}
+2025-06-01 01:42:58 | INFO     | iot_app.app.ui.room_view_tab:update_device_state:247 - [ROOM] dht updated → ON, Reading: 21.9 °C, 37.1 %
+2025-06-01 01:42:58 | INFO     | iot_app.app.core.db_client:insert_sensor_data:96 - [DB] Inserted: dht | {'temperature': '21.9 °C', 'humidity': '37.1 %'} | 2025-06-01 01:42:58.762116
+2025-06-01 01:42:58 | INFO     | iot_app.app.core.mqtt_client:publish:123 - [MQTT] Published to 'Home/light': 568 lx
+2025-06-01 01:42:58 | INFO     | iot_app.app.ui.room_view_tab:update_device_state:247 - [ROOM] light updated → ON, Reading: 568 lx
+2025-06-01 01:42:58 | INFO     | iot_app.app.core.db_client:insert_sensor_data:96 - [DB] Inserted: light | 568 lx | 2025-06-01 01:42:58.808453
+2025-06-01 01:42:59 | INFO     | iot_app.app.ui.emulators_tab:_on_button_pressed:209 - [EMULATOR] button pressed
+2025-06-01 01:42:59 | INFO     | iot_app.app.core.mqtt_client:publish:123 - [MQTT] Published to 'Home/button': pressed
+2025-06-01 01:42:59 | INFO     | iot_app.app.core.db_client:insert_sensor_data:96 - [DB] Inserted: button | pressed | 2025-06-01 01:42:59.818973
+2025-06-01 01:42:59 | INFO     | iot_app.app.ui.room_view_tab:update_device_state:247 - [ROOM] doorbell updated → ON, Reading: Pressed (7)
+2025-06-01 01:43:00 | INFO     | iot_app.app.core.mqtt_client:publish:123 - [MQTT] Published to 'Home/motion': motion detected
+2025-06-01 01:43:00 | INFO     | iot_app.app.core.db_client:insert_sensor_data:96 - [DB] Inserted: motion | motion detected | 2025-06-01 01:43:00.496796
+2025-06-01 01:43:00 | INFO     | iot_app.app.core.mqtt_client:publish:123 - [MQTT] Published to 'Home/light': 600 lx
+2025-06-01 01:43:00 | INFO     | iot_app.app.ui.room_view_tab:update_device_state:247 - [ROOM] light updated → ON, Reading: 600 lx
+2025-06-01 01:43:00 | INFO     | iot_app.app.core.db_client:insert_sensor_data:96 - [DB] Inserted: light | 600 lx | 2025-06-01 01:43:00.808476
+2025-06-01 01:43:00 | INFO     | iot_app.app.ui.room_view_tab:update_device_state:247 - [ROOM] doorbell updated → ON, Reading: Pressed (6)
+2025-06-01 01:43:01 | INFO     | iot_app.app.ui.room_view_tab:update_device_state:247 - [ROOM] doorbell updated → ON, Reading: Pressed (5)
+2025-06-01 01:43:02 | INFO     | iot_app.app.core.mqtt_client:publish:123 - [MQTT] Published to 'Home/light': 401 lx
+2025-06-01 01:43:02 | INFO     | iot_app.app.ui.room_view_tab:update_device_state:247 - [ROOM] light updated → ON, Reading: 401 lx
+2025-06-01 01:43:02 | INFO     | iot_app.app.core.db_client:insert_sensor_data:96 - [DB] Inserted: light | 401 lx | 2025-06-01 01:43:02.808013
+2025-06-01 01:43:02 | INFO     | iot_app.app.ui.room_view_tab:update_device_state:247 - [ROOM] doorbell updated → ON, Reading: Pressed (4)
+2025-06-01 01:43:03 | INFO     | iot_app.app.core.mqtt_client:publish:123 - [MQTT] Published to 'Home/motion': motion detected
+2025-06-01 01:43:03 | INFO     | iot_app.app.core.db_client:insert_sensor_data:96 - [DB] Inserted: motion | motion detected | 2025-06-01 01:43:03.496722
+2025-06-01 01:43:03 | INFO     | iot_app.app.core.mqtt_client:publish:123 - [MQTT] Published to 'Home/dht': {"temperature": "22.3 \u00b0C", "humidity": "43.7 %"}
+2025-06-01 01:43:03 | INFO     | iot_app.app.ui.room_view_tab:update_device_state:247 - [ROOM] dht updated → ON, Reading: 22.3 °C, 43.7 %
+2025-06-01 01:43:03 | INFO     | iot_app.app.core.db_client:insert_sensor_data:96 - [DB] Inserted: dht | {'temperature': '22.3 °C', 'humidity': '43.7 %'} | 2025-06-01 01:43:03.759633
+2025-06-01 01:43:03 | INFO     | iot_app.app.ui.room_view_tab:update_device_state:247 - [ROOM] doorbell updated → ON, Reading: Pressed (3)
+2025-06-01 01:43:04 | INFO     | iot_app.app.core.mqtt_client:publish:123 - [MQTT] Published to 'Home/light': 634 lx
+2025-06-01 01:43:04 | INFO     | iot_app.app.ui.room_view_tab:update_device_state:247 - [ROOM] light updated → ON, Reading: 634 lx
+2025-06-01 01:43:04 | INFO     | iot_app.app.core.db_client:insert_sensor_data:96 - [DB] Inserted: light | 634 lx | 2025-06-01 01:43:04.811570
+2025-06-01 01:43:04 | INFO     | iot_app.app.ui.room_view_tab:update_device_state:247 - [ROOM] doorbell updated → ON, Reading: Pressed (2)
+2025-06-01 01:43:05 | INFO     | iot_app.app.ui.room_view_tab:update_device_state:247 - [ROOM] doorbell updated → ON, Reading: Pressed (1)
+2025-06-01 01:43:06 | INFO     | iot_app.app.core.mqtt_client:publish:123 - [MQTT] Published to 'Home/motion': motion detected
+2025-06-01 01:43:06 | INFO     | iot_app.app.core.db_client:insert_sensor_data:96 - [DB] Inserted: motion | motion detected | 2025-06-01 01:43:06.496192
+2025-06-01 01:43:06 | INFO     | iot_app.app.core.mqtt_client:publish:123 - [MQTT] Published to 'Home/light': 173 lx
+2025-06-01 01:43:06 | INFO     | iot_app.app.ui.room_view_tab:update_device_state:247 - [ROOM] light updated → ON, Reading: 173 lx
+2025-06-01 01:43:06 | INFO     | iot_app.app.core.db_client:insert_sensor_data:96 - [DB] Inserted: light | 173 lx | 2025-06-01 01:43:06.807940
+2025-06-01 01:43:06 | INFO     | iot_app.app.core.mqtt_client:publish:123 - [MQTT] Published to 'Home/button': idle
+2025-06-01 01:43:06 | INFO     | iot_app.app.ui.room_view_tab:update_device_state:247 - [ROOM] doorbell updated → OFF, Reading: -
+2025-06-01 01:43:08 | INFO     | iot_app.app.core.mqtt_client:publish:123 - [MQTT] Published to 'Home/dht': {"temperature": "31.4 \u00b0C", "humidity": "66.5 %"}
+2025-06-01 01:43:08 | INFO     | iot_app.app.ui.room_view_tab:update_device_state:247 - [ROOM] dht updated → ON, Reading: 31.4 °C, 66.5 %
+2025-06-01 01:43:08 | INFO     | iot_app.app.core.db_client:insert_sensor_data:96 - [DB] Inserted: dht | {'temperature': '31.4 °C', 'humidity': '66.5 %'} | 2025-06-01 01:43:08.761868
+2025-06-01 01:43:08 | INFO     | iot_app.app.core.mqtt_client:publish:123 - [MQTT] Published to 'Home/light': 334 lx
+2025-06-01 01:43:08 | INFO     | iot_app.app.ui.room_view_tab:update_device_state:247 - [ROOM] light updated → ON, Reading: 334 lx
+2025-06-01 01:43:08 | INFO     | iot_app.app.core.db_client:insert_sensor_data:96 - [DB] Inserted: light | 334 lx | 2025-06-01 01:43:08.822268
+2025-06-01 01:43:09 | INFO     | iot_app.app.core.mqtt_client:publish:123 - [MQTT] Published to 'Home/motion': motion detected
+2025-06-01 01:43:09 | INFO     | iot_app.app.core.db_client:insert_sensor_data:96 - [DB] Inserted: motion | motion detected | 2025-06-01 01:43:09.495166
+2025-06-01 01:43:10 | INFO     | iot_app.app.core.mqtt_client:publish:123 - [MQTT] Published to 'Home/light': 641 lx
+2025-06-01 01:43:10 | INFO     | iot_app.app.ui.room_view_tab:update_device_state:247 - [ROOM] light updated → ON, Reading: 641 lx
+2025-06-01 01:43:10 | INFO     | iot_app.app.core.db_client:insert_sensor_data:96 - [DB] Inserted: light | 641 lx | 2025-06-01 01:43:10.808656
+2025-06-01 01:43:12 | INFO     | iot_app.app.core.mqtt_client:publish:123 - [MQTT] Published to 'Home/motion': motion detected
+2025-06-01 01:43:12 | INFO     | iot_app.app.core.db_client:insert_sensor_data:96 - [DB] Inserted: motion | motion detected | 2025-06-01 01:43:12.501125
+2025-06-01 01:43:12 | INFO     | iot_app.app.core.mqtt_client:publish:123 - [MQTT] Published to 'Home/light': 594 lx
+2025-06-01 01:43:12 | INFO     | iot_app.app.ui.room_view_tab:update_device_state:247 - [ROOM] light updated → ON, Reading: 594 lx
+2025-06-01 01:43:12 | INFO     | iot_app.app.core.db_client:insert_sensor_data:96 - [DB] Inserted: light | 594 lx | 2025-06-01 01:43:12.807843
+2025-06-01 01:43:13 | INFO     | iot_app.app.core.mqtt_client:publish:123 - [MQTT] Published to 'Home/dht': {"temperature": "29.1 \u00b0C", "humidity": "72.8 %"}
+2025-06-01 01:43:13 | INFO     | iot_app.app.ui.room_view_tab:update_device_state:247 - [ROOM] dht updated → ON, Reading: 29.1 °C, 72.8 %
+2025-06-01 01:43:13 | INFO     | iot_app.app.core.db_client:insert_sensor_data:96 - [DB] Inserted: dht | {'temperature': '29.1 °C', 'humidity': '72.8 %'} | 2025-06-01 01:43:13.762338
+2025-06-01 01:43:14 | INFO     | iot_app.app.core.mqtt_client:publish:123 - [MQTT] Published to 'Home/light': 238 lx
+2025-06-01 01:43:14 | INFO     | iot_app.app.ui.room_view_tab:update_device_state:247 - [ROOM] light updated → ON, Reading: 238 lx
+2025-06-01 01:43:14 | INFO     | iot_app.app.core.db_client:insert_sensor_data:96 - [DB] Inserted: light | 238 lx | 2025-06-01 01:43:14.807607
+2025-06-01 01:43:15 | INFO     | iot_app.app.core.mqtt_client:publish:123 - [MQTT] Published to 'Home/motion': motion detected
+2025-06-01 01:43:15 | INFO     | iot_app.app.core.db_client:insert_sensor_data:96 - [DB] Inserted: motion | motion detected | 2025-06-01 01:43:15.496694
+2025-06-01 01:43:16 | INFO     | iot_app.app.ui.settings_tab:_handle_reconnect:129 - [SETTINGS] Reconnecting to MQTT broker...
+2025-06-01 01:43:16 | INFO     | iot_app.app.core.mqtt_client:reconnect:101 - [MQTT] Reconnecting to broker...
+2025-06-01 01:43:16 | INFO     | iot_app.app.core.mqtt_client:start:81 - [MQTT] Attempting to connect to localhost:1883...
+2025-06-01 01:43:16 | SUCCESS  | iot_app.app.core.mqtt_client:_on_connect:51 - [MQTT] Connected to broker at localhost:1883
+2025-06-01 01:43:16 | INFO     | iot_app.app.core.mqtt_client:_on_connect:54 - [MQTT] Subscribed to topic: Home/#
+2025-06-01 01:43:16 | INFO     | iot_app.app.core.mqtt_client:publish:123 - [MQTT] Published to 'Home/light': 252 lx
+2025-06-01 01:43:16 | INFO     | iot_app.app.ui.room_view_tab:update_device_state:247 - [ROOM] light updated → ON, Reading: 252 lx
+2025-06-01 01:43:16 | INFO     | iot_app.app.core.db_client:insert_sensor_data:96 - [DB] Inserted: light | 252 lx | 2025-06-01 01:43:16.809509
+2025-06-01 01:43:18 | SUCCESS  | iot_app.app.core.db_client:test_connection:147 - [DB] Ping successful ✔
+2025-06-01 01:43:18 | SUCCESS  | iot_app.app.core.mqtt_client:test_connection:146 - [MQTT] Ping successful ✔
+2025-06-01 01:43:18 | SUCCESS  | iot_app.app.core.db_client:test_connection:147 - [DB] Ping successful ✔
+2025-06-01 01:43:18 | INFO     | iot_app.app.core.mqtt_client:publish:123 - [MQTT] Published to 'Home/motion': motion detected
+2025-06-01 01:43:18 | INFO     | iot_app.app.core.db_client:insert_sensor_data:96 - [DB] Inserted: motion | motion detected | 2025-06-01 01:43:18.496772
+2025-06-01 01:43:18 | INFO     | iot_app.app.core.mqtt_client:publish:123 - [MQTT] Published to 'Home/dht': {"temperature": "30.4 \u00b0C", "humidity": "60.3 %"}
+2025-06-01 01:43:18 | INFO     | iot_app.app.ui.room_view_tab:update_device_state:247 - [ROOM] dht updated → ON, Reading: 30.4 °C, 60.3 %
+2025-06-01 01:43:18 | INFO     | iot_app.app.core.db_client:insert_sensor_data:96 - [DB] Inserted: dht | {'temperature': '30.4 °C', 'humidity': '60.3 %'} | 2025-06-01 01:43:18.762399
+2025-06-01 01:43:18 | INFO     | iot_app.app.core.mqtt_client:publish:123 - [MQTT] Published to 'Home/light': 275 lx
+2025-06-01 01:43:18 | INFO     | iot_app.app.ui.room_view_tab:update_device_state:247 - [ROOM] light updated → ON, Reading: 275 lx
+2025-06-01 01:43:18 | INFO     | iot_app.app.core.db_client:insert_sensor_data:96 - [DB] Inserted: light | 275 lx | 2025-06-01 01:43:18.808537
+2025-06-01 01:43:20 | INFO     | iot_app.app.core.mqtt_client:publish:123 - [MQTT] Published to 'Home/light': 795 lx
+2025-06-01 01:43:20 | INFO     | iot_app.app.ui.room_view_tab:update_device_state:247 - [ROOM] light updated → ON, Reading: 795 lx
+2025-06-01 01:43:20 | INFO     | iot_app.app.core.db_client:insert_sensor_data:96 - [DB] Inserted: light | 795 lx | 2025-06-01 01:43:20.808245
+2025-06-01 01:43:21 | INFO     | iot_app.app.core.mqtt_client:publish:123 - [MQTT] Published to 'Home/motion': motion detected
+2025-06-01 01:43:21 | INFO     | iot_app.app.core.db_client:insert_sensor_data:96 - [DB] Inserted: motion | motion detected | 2025-06-01 01:43:21.495585
+2025-06-01 01:43:22 | INFO     | iot_app.app.core.mqtt_client:publish:123 - [MQTT] Published to 'Home/light': 973 lx
+2025-06-01 01:43:22 | INFO     | iot_app.app.ui.room_view_tab:update_device_state:247 - [ROOM] light updated → ON, Reading: 973 lx
+2025-06-01 01:43:22 | INFO     | iot_app.app.core.db_client:insert_sensor_data:96 - [DB] Inserted: light | 973 lx | 2025-06-01 01:43:22.809758
+2025-06-01 01:43:23 | INFO     | iot_app.app.core.mqtt_client:publish:123 - [MQTT] Published to 'Home/dht': {"temperature": "27.5 \u00b0C", "humidity": "74.9 %"}
+2025-06-01 01:43:23 | INFO     | iot_app.app.ui.room_view_tab:update_device_state:247 - [ROOM] dht updated → ON, Reading: 27.5 °C, 74.9 %
+2025-06-01 01:43:23 | INFO     | iot_app.app.core.db_client:insert_sensor_data:96 - [DB] Inserted: dht | {'temperature': '27.5 °C', 'humidity': '74.9 %'} | 2025-06-01 01:43:23.761023
+2025-06-01 01:43:24 | INFO     | iot_app.app.core.mqtt_client:publish:123 - [MQTT] Published to 'Home/motion': motion detected
+2025-06-01 01:43:24 | INFO     | iot_app.app.core.db_client:insert_sensor_data:96 - [DB] Inserted: motion | motion detected | 2025-06-01 01:43:24.494988
+2025-06-01 01:43:24 | INFO     | iot_app.app.core.mqtt_client:publish:123 - [MQTT] Published to 'Home/light': 326 lx
+2025-06-01 01:43:24 | INFO     | iot_app.app.ui.room_view_tab:update_device_state:247 - [ROOM] light updated → ON, Reading: 326 lx
+2025-06-01 01:43:24 | INFO     | iot_app.app.core.db_client:insert_sensor_data:96 - [DB] Inserted: light | 326 lx | 2025-06-01 01:43:24.807161
+2025-06-01 01:43:26 | INFO     | iot_app.app.core.mqtt_client:publish:123 - [MQTT] Published to 'Home/light': 537 lx
+2025-06-01 01:43:26 | INFO     | iot_app.app.ui.room_view_tab:update_device_state:247 - [ROOM] light updated → ON, Reading: 537 lx
+2025-06-01 01:43:26 | INFO     | iot_app.app.core.db_client:insert_sensor_data:96 - [DB] Inserted: light | 537 lx | 2025-06-01 01:43:26.808548
+2025-06-01 01:43:27 | INFO     | iot_app.app.core.mqtt_client:publish:123 - [MQTT] Published to 'Home/motion': motion detected
+2025-06-01 01:43:27 | INFO     | iot_app.app.core.db_client:insert_sensor_data:96 - [DB] Inserted: motion | motion detected | 2025-06-01 01:43:27.496624
+2025-06-01 01:43:28 | INFO     | iot_app.app.core.mqtt_client:publish:123 - [MQTT] Published to 'Home/dht': {"temperature": "24.9 \u00b0C", "humidity": "85.6 %"}
+2025-06-01 01:43:28 | INFO     | iot_app.app.ui.room_view_tab:update_device_state:247 - [ROOM] dht updated → ON, Reading: 24.9 °C, 85.6 %
+2025-06-01 01:43:28 | INFO     | iot_app.app.core.db_client:insert_sensor_data:96 - [DB] Inserted: dht | {'temperature': '24.9 °C', 'humidity': '85.6 %'} | 2025-06-01 01:43:28.762264
+2025-06-01 01:43:28 | INFO     | iot_app.app.core.mqtt_client:publish:123 - [MQTT] Published to 'Home/light': 311 lx
+2025-06-01 01:43:28 | INFO     | iot_app.app.ui.room_view_tab:update_device_state:247 - [ROOM] light updated → ON, Reading: 311 lx
+2025-06-01 01:43:28 | INFO     | iot_app.app.core.db_client:insert_sensor_data:96 - [DB] Inserted: light | 311 lx | 2025-06-01 01:43:28.829877
+2025-06-01 01:43:30 | INFO     | iot_app.app.core.mqtt_client:publish:123 - [MQTT] Published to 'Home/motion': motion detected
+2025-06-01 01:43:30 | INFO     | iot_app.app.core.db_client:insert_sensor_data:96 - [DB] Inserted: motion | motion detected | 2025-06-01 01:43:30.507075
+2025-06-01 01:43:30 | INFO     | iot_app.app.core.mqtt_client:publish:123 - [MQTT] Published to 'Home/light': 284 lx
+2025-06-01 01:43:30 | INFO     | iot_app.app.ui.room_view_tab:update_device_state:247 - [ROOM] light updated → ON, Reading: 284 lx
+2025-06-01 01:43:30 | INFO     | iot_app.app.core.db_client:insert_sensor_data:96 - [DB] Inserted: light | 284 lx | 2025-06-01 01:43:30.810555
+2025-06-01 01:43:32 | INFO     | iot_app.app.core.mqtt_client:publish:123 - [MQTT] Published to 'Home/light': 930 lx
+2025-06-01 01:43:32 | INFO     | iot_app.app.ui.room_view_tab:update_device_state:247 - [ROOM] light updated → ON, Reading: 930 lx
+2025-06-01 01:43:32 | INFO     | iot_app.app.core.db_client:insert_sensor_data:96 - [DB] Inserted: light | 930 lx | 2025-06-01 01:43:32.807292
+2025-06-01 01:43:33 | INFO     | iot_app.app.core.mqtt_client:publish:123 - [MQTT] Published to 'Home/motion': motion detected
+2025-06-01 01:43:33 | INFO     | iot_app.app.core.db_client:insert_sensor_data:96 - [DB] Inserted: motion | motion detected | 2025-06-01 01:43:33.496318
+2025-06-01 01:43:33 | INFO     | iot_app.app.core.mqtt_client:publish:123 - [MQTT] Published to 'Home/dht': {"temperature": "23.8 \u00b0C", "humidity": "85.0 %"}
+2025-06-01 01:43:33 | INFO     | iot_app.app.ui.room_view_tab:update_device_state:247 - [ROOM] dht updated → ON, Reading: 23.8 °C, 85.0 %
+2025-06-01 01:43:33 | INFO     | iot_app.app.core.db_client:insert_sensor_data:96 - [DB] Inserted: dht | {'temperature': '23.8 °C', 'humidity': '85.0 %'} | 2025-06-01 01:43:33.762118
+2025-06-01 01:43:34 | INFO     | iot_app.app.core.mqtt_client:publish:123 - [MQTT] Published to 'Home/light': 304 lx
+2025-06-01 01:43:34 | INFO     | iot_app.app.ui.room_view_tab:update_device_state:247 - [ROOM] light updated → ON, Reading: 304 lx
+2025-06-01 01:43:34 | INFO     | iot_app.app.core.db_client:insert_sensor_data:96 - [DB] Inserted: light | 304 lx | 2025-06-01 01:43:34.807093
+2025-06-01 01:43:36 | INFO     | iot_app.app.core.mqtt_client:publish:123 - [MQTT] Published to 'Home/motion': motion detected
+2025-06-01 01:43:36 | INFO     | iot_app.app.core.db_client:insert_sensor_data:96 - [DB] Inserted: motion | motion detected | 2025-06-01 01:43:36.496176
+2025-06-01 01:43:36 | INFO     | iot_app.app.core.mqtt_client:publish:123 - [MQTT] Published to 'Home/light': 417 lx
+2025-06-01 01:43:36 | INFO     | iot_app.app.ui.room_view_tab:update_device_state:247 - [ROOM] light updated → ON, Reading: 417 lx
+2025-06-01 01:43:36 | INFO     | iot_app.app.core.db_client:insert_sensor_data:96 - [DB] Inserted: light | 417 lx | 2025-06-01 01:43:36.807182
+2025-06-01 01:43:38 | INFO     | iot_app.app.core.mqtt_client:publish:123 - [MQTT] Published to 'Home/dht': {"temperature": "22.6 \u00b0C", "humidity": "67.2 %"}
+2025-06-01 01:43:38 | INFO     | iot_app.app.ui.room_view_tab:update_device_state:247 - [ROOM] dht updated → ON, Reading: 22.6 °C, 67.2 %
+2025-06-01 01:43:38 | INFO     | iot_app.app.core.db_client:insert_sensor_data:96 - [DB] Inserted: dht | {'temperature': '22.6 °C', 'humidity': '67.2 %'} | 2025-06-01 01:43:38.764803
+2025-06-01 01:43:38 | INFO     | iot_app.app.core.mqtt_client:publish:123 - [MQTT] Published to 'Home/light': 864 lx
+2025-06-01 01:43:38 | INFO     | iot_app.app.ui.room_view_tab:update_device_state:247 - [ROOM] light updated → ON, Reading: 864 lx
+2025-06-01 01:43:38 | INFO     | iot_app.app.core.db_client:insert_sensor_data:96 - [DB] Inserted: light | 864 lx | 2025-06-01 01:43:38.810291
+2025-06-01 01:43:39 | INFO     | iot_app.app.core.mqtt_client:publish:123 - [MQTT] Published to 'Home/motion': motion detected
+2025-06-01 01:43:39 | INFO     | iot_app.app.core.db_client:insert_sensor_data:96 - [DB] Inserted: motion | motion detected | 2025-06-01 01:43:39.497316
+2025-06-01 01:43:40 | INFO     | iot_app.app.core.mqtt_client:publish:123 - [MQTT] Published to 'Home/light': 474 lx
+2025-06-01 01:43:40 | INFO     | iot_app.app.ui.room_view_tab:update_device_state:247 - [ROOM] light updated → ON, Reading: 474 lx
+2025-06-01 01:43:40 | INFO     | iot_app.app.core.db_client:insert_sensor_data:96 - [DB] Inserted: light | 474 lx | 2025-06-01 01:43:40.809494
+2025-06-01 01:43:41 | INFO     | iot_app.app.ui.emulators_tab:_on_stop_clicked:194 - [EMULATOR] 'Relay' stopped
+2025-06-01 01:43:41 | INFO     | iot_app.app.core.mqtt_client:publish:123 - [MQTT] Published to 'Home/relay': 0
+2025-06-01 01:43:41 | INFO     | iot_app.app.ui.room_view_tab:update_device_state:247 - [ROOM] relay updated → OFF, Reading: OFF
+2025-06-01 01:43:41 | INFO     | iot_app.app.core.db_client:insert_sensor_data:96 - [DB] Inserted: relay | 0 | 2025-06-01 01:43:41.923646
+2025-06-01 01:43:42 | INFO     | iot_app.app.ui.room_view_tab:update_device_state:247 - [ROOM] relay updated → OFF, Reading: -
+2025-06-01 01:43:42 | INFO     | iot_app.app.core.mqtt_client:publish:123 - [MQTT] Published to 'Home/motion': motion detected
+2025-06-01 01:43:42 | INFO     | iot_app.app.core.db_client:insert_sensor_data:96 - [DB] Inserted: motion | motion detected | 2025-06-01 01:43:42.496367
+2025-06-01 01:43:42 | INFO     | iot_app.app.ui.emulators_tab:_on_stop_clicked:194 - [EMULATOR] 'DHT Sensor' stopped
+2025-06-01 01:43:42 | INFO     | iot_app.app.core.mqtt_client:publish:123 - [MQTT] Published to 'Home/dht': null
+2025-06-01 01:43:42 | INFO     | iot_app.app.emulators.base_emulator:turn_off:66 - [Emulator] dht turned OFF
+2025-06-01 01:43:42 | INFO     | iot_app.app.ui.room_view_tab:update_device_state:247 - [ROOM] dht updated → OFF, Reading: -
+2025-06-01 01:43:42 | INFO     | iot_app.app.core.mqtt_client:publish:123 - [MQTT] Published to 'Home/light': 23 lx
+2025-06-01 01:43:42 | INFO     | iot_app.app.ui.room_view_tab:update_device_state:247 - [ROOM] light updated → ON, Reading: 23 lx
+2025-06-01 01:43:42 | INFO     | iot_app.app.core.db_client:insert_sensor_data:96 - [DB] Inserted: light | 23 lx | 2025-06-01 01:43:42.808515
+2025-06-01 01:43:43 | INFO     | iot_app.app.ui.emulators_tab:_on_stop_clicked:194 - [EMULATOR] 'Light Sensor' stopped
+2025-06-01 01:43:43 | INFO     | iot_app.app.core.mqtt_client:publish:123 - [MQTT] Published to 'Home/light': None
+2025-06-01 01:43:43 | INFO     | iot_app.app.emulators.base_emulator:turn_off:66 - [Emulator] light turned OFF
+2025-06-01 01:43:43 | INFO     | iot_app.app.ui.room_view_tab:update_device_state:247 - [ROOM] light updated → OFF, Reading: -
+2025-06-01 01:43:44 | INFO     | iot_app.app.ui.emulators_tab:_on_stop_clicked:194 - [EMULATOR] 'Motion Sensor' stopped
+2025-06-01 01:43:44 | INFO     | iot_app.app.core.mqtt_client:publish:123 - [MQTT] Published to 'Home/motion': None
+2025-06-01 01:43:44 | INFO     | iot_app.app.emulators.base_emulator:turn_off:66 - [Emulator] motion turned OFF
+2025-06-01 01:43:44 | INFO     | iot_app.app.ui.room_view_tab:update_device_state:247 - [ROOM] motion updated → OFF, Reading: -
+2025-06-01 01:43:48 | SUCCESS  | iot_app.app.core.db_client:test_connection:147 - [DB] Ping successful ✔
+2025-06-01 01:43:48 | SUCCESS  | iot_app.app.core.mqtt_client:test_connection:146 - [MQTT] Ping successful ✔
+2025-06-01 01:43:48 | SUCCESS  | iot_app.app.core.db_client:test_connection:147 - [DB] Ping successful ✔
+2025-06-01 01:43:52 | INFO     | iot_app.app.ui.settings_tab:_handle_test_db:140 - [SETTINGS] Testing connection to database...
+2025-06-01 01:43:52 | SUCCESS  | iot_app.app.core.db_client:test_connection:147 - [DB] Ping successful ✔
+2025-06-01 01:44:18 | SUCCESS  | iot_app.app.core.db_client:test_connection:147 - [DB] Ping successful ✔
+2025-06-01 01:44:18 | SUCCESS  | iot_app.app.core.mqtt_client:test_connection:146 - [MQTT] Ping successful ✔
+2025-06-01 01:44:18 | SUCCESS  | iot_app.app.core.db_client:test_connection:147 - [DB] Ping successful ✔
+2025-06-01 01:44:25 | INFO     | iot_app.app.ui.logs_tab:save_logs:153 - [LOGS] Logs exported to 'C:/Users/itay3/Downloads/logs.txt'
+2025-06-01 01:44:48 | SUCCESS  | iot_app.app.core.db_client:test_connection:147 - [DB] Ping successful ✔
+2025-06-01 01:44:48 | SUCCESS  | iot_app.app.core.mqtt_client:test_connection:146 - [MQTT] Ping successful ✔
+2025-06-01 01:44:48 | SUCCESS  | iot_app.app.core.db_client:test_connection:147 - [DB] Ping successful ✔

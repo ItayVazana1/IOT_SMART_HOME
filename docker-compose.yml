@@ -3,10 +3,10 @@ services:
     image: eclipse-mosquitto
     container_name: mosquitto_broker
     ports:
-      - "1883:1883"
-      - "9001:9001"
+      - "1883:1883"       # MQTT protocol
+      - "9001:9001"       # MQTT over WebSocket
     volumes:
-      - ./mosquitto/config:/mosquitto/config
+      - ./mosquitto/config:/mosquitto/config  # Mount custom mosquitto.conf
     networks:
       - iot_net
 
@@ -14,15 +14,16 @@ services:
     image: mysql:8.0
     container_name: mysql_db
     environment:
-      MYSQL_ROOT_PASSWORD: rootpass
-      MYSQL_DATABASE: iot_data
-      MYSQL_USER: iotuser
-      MYSQL_PASSWORD: iotpass
+      MYSQL_ROOT_PASSWORD: rootpass           # Required root login
+      MYSQL_DATABASE: iot_data                # Auto-create DB
+      MYSQL_USER: iotuser                     # Create custom user
+      MYSQL_PASSWORD: iotpass                 # User password
     ports:
-      - "3307:3306"
+      - "3307:3306"                           # Expose MySQL on 3307 (to avoid conflict)
     volumes:
-      - db_data:/var/lib/mysql
-      - ./mysql/init.sql:/docker-entrypoint-initdb.d/init.sql
+      - db_data:/var/lib/mysql                # Persist database
+      - ./mysql/init.sql:/docker-entrypoint-initdb.d/init.sql  # Auto-init SQL
+      - ./mysql/my.cnf:/etc/mysql/conf.d/my.cnf                # Custom config (native auth)
     networks:
       - iot_net
 
@@ -31,7 +32,7 @@ services:
     container_name: adminer_ui
     restart: always
     ports:
-      - "8080:8080"
+      - "8080:8080"         # Access Adminer at http://localhost:8080
     networks:
       - iot_net
 

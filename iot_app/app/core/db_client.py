@@ -1,8 +1,6 @@
 """
 Project: IoT Smart Home
 File: db_client.py
-Updated: 2025-05-31 🕒
-
 Description:
 MySQL client module using mysql-connector-python.
 Handles connection to Dockerized MySQL database and provides read/write operations.
@@ -13,6 +11,10 @@ from iot_app.app.utils.logger import logger
 
 
 class DBClient:
+    """
+    MySQL client wrapper for IoT sensor data handling.
+    Supports connection, reconnection, insertion, fetching, and testing.
+    """
     def __init__(self,
                  host="localhost",
                  port=3307,
@@ -21,6 +23,13 @@ class DBClient:
                  database="iot_data"):
         """
         Initialize the DB client with connection parameters.
+
+        Args:
+            host (str): MySQL host address.
+            port (int): MySQL port number.
+            user (str): MySQL username.
+            password (str): MySQL password.
+            database (str): Database name to connect to.
         """
         self.host = host
         self.port = port
@@ -30,6 +39,10 @@ class DBClient:
         self.conn = None
 
     def connect(self):
+        """
+        Establish connection to the MySQL database.
+        Uses mysql_native_password authentication.
+        """
         try:
             logger.info(f"[DB] Connecting to MySQL at {self.host}:{self.port}...")
             self.conn = mysql.connector.connect(
@@ -51,7 +64,7 @@ class DBClient:
 
     def reconnect(self):
         """
-        Reconnect to the database.
+        Reconnect to the database after closing any existing connection.
         """
         try:
             if self.conn and self.conn.is_connected():
@@ -59,12 +72,16 @@ class DBClient:
                 logger.info("[DB] Previous connection closed.")
         except Exception as e:
             logger.warning(f"[DB] Error while closing existing connection: {e}")
-
         self.connect()
 
     def insert_sensor_data(self, device_type: str, value: str, timestamp):
         """
-        Insert a record into device_data table.
+        Insert a sensor reading into the database.
+
+        Args:
+            device_type (str): Device key (e.g., 'dht').
+            value (str): Sensor reading.
+            timestamp (datetime): Time of reading.
         """
         if not self.conn or not self.conn.is_connected():
             logger.warning("[DB] Cannot insert — no active connection.")
@@ -86,7 +103,13 @@ class DBClient:
 
     def fetch_latest_records(self, limit=10):
         """
-        Retrieve recent device data from DB.
+        Fetch the most recent device data records.
+
+        Args:
+            limit (int): Number of records to retrieve.
+
+        Returns:
+            list[dict]: A list of result rows as dictionaries.
         """
         if not self.conn or not self.conn.is_connected():
             logger.warning("[DB] Cannot fetch — no active connection.")
@@ -110,16 +133,15 @@ class DBClient:
 
     def test_connection(self):
         """
-        Try to ping the DB, and reconnect automatically if needed.
+        Test the current database connection and reconnect if needed.
+
+        Returns:
+            bool: True if ping succeeded, False otherwise.
         """
         try:
-            if self.conn is None or not self.conn.is_connected():
+            if not self.conn or not self.conn.is_connected():
                 logger.warning("[DB] No active connection. Attempting to reconnect...")
                 self.connect()
-
-            if self.conn is None or not self.conn.is_connected():
-                logger.error("[DB] Reconnection failed ✖")
-                return False
 
             self.conn.ping(reconnect=True)
             logger.success("[DB] Ping successful ✔")
@@ -130,7 +152,9 @@ class DBClient:
             return False
 
     def close(self):
-        """Close the DB connection."""
+        """
+        Close the current database connection.
+        """
         if self.conn and self.conn.is_connected():
             self.conn.close()
             logger.info("[DB] Connection closed.")

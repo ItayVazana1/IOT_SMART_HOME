@@ -1,13 +1,18 @@
 @echo off
+:: ================================================
+:: Remove Python Virtual Environment (Windows)
+:: ================================================
+
 echo ================================================
-echo 🧹 Removing Python virtual environment...
+echo Removing Python virtual environment...
 echo ================================================
 
+:: Check if the 'venv' folder exists
 IF EXIST "venv\" (
     rmdir /S /Q venv
-    echo ✅ venv folder deleted.
+    echo Virtual environment folder 'venv' deleted successfully.
 ) ELSE (
-    echo ⚠️  No venv folder found.
+    echo No virtual environment folder found.
 )
 
 pause

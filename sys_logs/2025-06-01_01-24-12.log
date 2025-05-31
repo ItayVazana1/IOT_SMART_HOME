@@ -1,0 +1,33 @@
+2025-06-01 01:24:15 | INFO     | iot_app.app.core.mqtt_client:start:79 - [MQTT] Attempting to connect to localhost:1883...
+2025-06-01 01:24:15 | SUCCESS  | iot_app.app.core.mqtt_client:_on_connect:49 - [MQTT] Connected to broker at localhost:1883
+2025-06-01 01:24:15 | INFO     | iot_app.app.core.mqtt_client:_on_connect:52 - [MQTT] Subscribed to topic: Home/#
+2025-06-01 01:24:17 | INFO     | iot_app.app.core.db_client:connect:47 - [DB] Connecting to MySQL at localhost:3307...
+2025-06-01 01:24:17 | SUCCESS  | iot_app.app.core.db_client:connect:57 - [DB] Connected to MySQL database ✔
+2025-06-01 01:24:17 | INFO     | __main__:_finalize_tabs:134 - 🚀 System initialized and GUI loaded.
+2025-06-01 01:24:17 | SUCCESS  | iot_app.app.core.mqtt_client:test_connection:143 - [MQTT] Ping successful ✔
+2025-06-01 01:24:17 | SUCCESS  | iot_app.app.core.db_client:test_connection:147 - [DB] Ping successful ✔
+2025-06-01 01:24:26 | INFO     | iot_app.app.ui.emulators_tab:_on_button_pressed:209 - [EMULATOR] button pressed
+2025-06-01 01:24:26 | INFO     | iot_app.app.core.mqtt_client:publish:120 - [MQTT] Published to 'Home/button': pressed
+2025-06-01 01:24:26 | INFO     | iot_app.app.core.db_client:insert_sensor_data:96 - [DB] Inserted: button | pressed | 2025-06-01 01:24:26.081584
+2025-06-01 01:24:26 | INFO     | iot_app.app.ui.room_view_tab:update_device_state:239 - [ROOM] doorbell updated → ON, Reading: Pressed (5)
+2025-06-01 01:24:27 | INFO     | iot_app.app.ui.room_view_tab:update_device_state:239 - [ROOM] doorbell updated → ON, Reading: Pressed (4)
+2025-06-01 01:24:28 | INFO     | iot_app.app.ui.room_view_tab:update_device_state:239 - [ROOM] doorbell updated → ON, Reading: Pressed (3)
+2025-06-01 01:24:29 | INFO     | iot_app.app.ui.room_view_tab:update_device_state:239 - [ROOM] doorbell updated → ON, Reading: Pressed (2)
+2025-06-01 01:24:30 | INFO     | iot_app.app.ui.room_view_tab:update_device_state:239 - [ROOM] doorbell updated → ON, Reading: Pressed (1)
+2025-06-01 01:24:31 | INFO     | iot_app.app.core.mqtt_client:publish:120 - [MQTT] Published to 'Home/button': idle
+2025-06-01 01:24:31 | INFO     | iot_app.app.ui.room_view_tab:update_device_state:239 - [ROOM] doorbell updated → OFF, Reading: -
+2025-06-01 01:24:31 | INFO     | iot_app.app.ui.room_view_tab:update_device_state:239 - [ROOM] doorbell updated → OFF, Reading: Pressed (5)
+2025-06-01 01:24:32 | INFO     | iot_app.app.ui.room_view_tab:update_device_state:239 - [ROOM] doorbell updated → OFF, Reading: Pressed (4)
+2025-06-01 01:24:33 | INFO     | iot_app.app.ui.room_view_tab:update_device_state:239 - [ROOM] doorbell updated → OFF, Reading: Pressed (3)
+2025-06-01 01:24:34 | INFO     | iot_app.app.ui.room_view_tab:update_device_state:239 - [ROOM] doorbell updated → OFF, Reading: Pressed (2)
+2025-06-01 01:24:35 | INFO     | iot_app.app.ui.room_view_tab:update_device_state:239 - [ROOM] doorbell updated → OFF, Reading: Pressed (1)
+2025-06-01 01:24:36 | INFO     | iot_app.app.ui.room_view_tab:update_device_state:239 - [ROOM] doorbell updated → OFF, Reading: -
+2025-06-01 01:25:17 | SUCCESS  | iot_app.app.core.db_client:test_connection:147 - [DB] Ping successful ✔
+2025-06-01 01:25:17 | SUCCESS  | iot_app.app.core.mqtt_client:test_connection:143 - [MQTT] Ping successful ✔
+2025-06-01 01:25:17 | SUCCESS  | iot_app.app.core.db_client:test_connection:147 - [DB] Ping successful ✔
+2025-06-01 01:25:47 | SUCCESS  | iot_app.app.core.db_client:test_connection:147 - [DB] Ping successful ✔
+2025-06-01 01:25:47 | SUCCESS  | iot_app.app.core.mqtt_client:test_connection:143 - [MQTT] Ping successful ✔
+2025-06-01 01:25:47 | SUCCESS  | iot_app.app.core.db_client:test_connection:147 - [DB] Ping successful ✔
+2025-06-01 01:26:17 | SUCCESS  | iot_app.app.core.db_client:test_connection:147 - [DB] Ping successful ✔
+2025-06-01 01:26:17 | SUCCESS  | iot_app.app.core.mqtt_client:test_connection:143 - [MQTT] Ping successful ✔
+2025-06-01 01:26:17 | SUCCESS  | iot_app.app.core.db_client:test_connection:147 - [DB] Ping successful ✔

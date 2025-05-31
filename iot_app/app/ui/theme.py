@@ -1,7 +1,6 @@
 """
 Project: IoT Smart Home
 File: theme.py
-
 Description:
 Centralized visual constants for fonts, colors, spacing and sizing.
 Does not override stylesheet – intended for code-level usage.
@@ -9,7 +8,6 @@ Does not override stylesheet – intended for code-level usage.
 
 from PyQt5.QtGui import QFont
 
-# === Color Palette ===
 COLORS = {
     "background": "#1e1e2f",
     "secondary": "#2c2c3c",
@@ -24,7 +22,6 @@ COLORS = {
     "card": "#27293d",
 }
 
-# === Font Sizes ===
 FONT_SIZES = {
     "small": 11,
     "normal": 13,
@@ -33,7 +30,6 @@ FONT_SIZES = {
     "title": 22,
 }
 
-# === Layout Spacing ===
 SIZES = {
     "margin": 30,
     "padding": 15,
@@ -41,8 +37,18 @@ SIZES = {
     "corner_radius": 6,
 }
 
-# === Font Utility ===
+
 def get_font(size="normal", bold=False):
+    """
+    Return a configured QFont based on size keyword and bold flag.
+
+    Args:
+        size (str): One of 'small', 'normal', 'medium', 'large', or 'title'.
+        bold (bool): Whether to return a bold font.
+
+    Returns:
+        QFont: Configured font object.
+    """
     font = QFont("Segoe UI")
     font.setPointSize(FONT_SIZES.get(size, 13))
     font.setBold(bold)

@@ -1,20 +1,37 @@
--- Create the database (in case it's not created by environment variable)
+-- ==========================================
+-- 🗄️ Database & User Setup for IoT Project
+-- ==========================================
+
+-- Create the database if it doesn't already exist
 CREATE DATABASE IF NOT EXISTS iot_data;
 
--- Use the correct database
+-- Switch to the newly created (or existing) database
 USE iot_data;
 
--- Create the user with native password authentication
-CREATE USER IF NOT EXISTS 'iotuser'@'%' IDENTIFIED WITH mysql_native_password BY 'iotpass';
+-- ==========================================
+-- 👤 User Configuration
+-- ==========================================
 
--- Grant privileges to the user
+-- Drop existing user if it exists (helps reset plugin/auth if needed)
+DROP USER IF EXISTS 'iotuser'@'%';
+
+-- Recreate the user with mysql_native_password (required for compatibility)
+CREATE USER 'iotuser'@'%' IDENTIFIED WITH mysql_native_password BY 'iotpass';
+
+-- Grant full permissions to the user on the iot_data database
 GRANT ALL PRIVILEGES ON iot_data.* TO 'iotuser'@'%';
+
+-- Apply changes immediately
 FLUSH PRIVILEGES;
 
--- Create the table
+-- ==========================================
+-- 📋 Table Definition
+-- ==========================================
+
+-- Create the device_data table if it doesn't exist
 CREATE TABLE IF NOT EXISTS device_data (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    device_type VARCHAR(50),
-    value TEXT,
-    timestamp DATETIME DEFAULT CURRENT_TIMESTAMP
+    id INT AUTO_INCREMENT PRIMARY KEY,       -- Unique ID for each record
+    device_type VARCHAR(50),                 -- Type of device (e.g., dht, light)
+    value TEXT,                              -- Sensor reading or value
+    timestamp DATETIME DEFAULT CURRENT_TIMESTAMP  -- Auto-filled timestamp
 );

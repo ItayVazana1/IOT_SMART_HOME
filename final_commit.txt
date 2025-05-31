@@ -1,0 +1,19 @@
+🎉 Final Commit – IoT Smart Home Project Complete
+
+All modules finalized:
+- ✅ PyQt5 GUI with 5 interactive tabs: Dashboard, Emulators, Logs, Room View, and Settings
+- ✅ Real-time MQTT communication with Mosquitto broker
+- ✅ MySQL database integration with automated data logging
+- ✅ Dynamic emulator control and status updates
+- ✅ Room View visualization with live feedback and animations
+- ✅ Centralized logger and structured output
+- ✅ Resilient connection handling (MQTT & DB)
+- ✅ Auto-recovery popup for service failures
+- ✅ Setup/cleanup scripts, README documentation, and system diagnostics
+- ✅ 📽️ Added demo video in the `media/` directory
+
+Project developed as part of:
+🧠 "Software Development for IoT Systems in a Smart City Environment"  
+🎓 B.Sc. in Computer Science – Final Coursework
+
+🛠️ Ready for demo, submission, and deployment.
