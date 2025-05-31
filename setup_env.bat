@@ -24,4 +24,3 @@ echo ✅ Setup complete!
 echo Ready to run: python iot_app/app/main.py
 echo ================================================
 pause
-אפש
