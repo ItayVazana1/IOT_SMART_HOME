@@ -1,0 +1,14 @@
+# MQTT
+paho-mqtt==1.6.1
+
+# GUI
+PyQt5==5.15.9
+
+# Database
+mysql-connector-python==8.3.0
+
+# Data export & processing
+pandas==2.2.2
+
+# Logging
+loguru==0.7.2

@@ -1,0 +1,57 @@
+services:
+  broker:
+    image: eclipse-mosquitto
+    container_name: mosquitto_broker
+    ports:
+      - "1883:1883"
+      - "9001:9001"
+    volumes:
+      - ./mosquitto/config:/mosquitto/config
+    networks:
+      - iot_net
+
+  db:
+    image: mysql:8.0
+    container_name: mysql_db
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpass
+      MYSQL_DATABASE: iot_data
+      MYSQL_USER: iotuser
+      MYSQL_PASSWORD: iotpass
+    ports:
+      - "3307:3306"
+    volumes:
+      - db_data:/var/lib/mysql
+      - ./mysql/init.sql:/docker-entrypoint-initdb.d/init.sql
+    networks:
+      - iot_net
+
+  adminer:
+    image: adminer
+    container_name: adminer_ui
+    restart: always
+    ports:
+      - "8080:8080"
+    networks:
+      - iot_net
+
+  app:
+    build:
+      context: ./iot_app
+    container_name: iot_app
+    depends_on:
+      - broker
+      - db
+    volumes:
+      - ./iot_app:/app
+    networks:
+      - iot_net
+    stdin_open: true
+    tty: true
+
+networks:
+  iot_net:
+    driver: bridge
+
+volumes:
+  db_data:
