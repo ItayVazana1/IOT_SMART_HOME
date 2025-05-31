@@ -35,20 +35,6 @@ services:
     networks:
       - iot_net
 
-  app:
-    build:
-      context: ./iot_app
-    container_name: iot_app
-    depends_on:
-      - broker
-      - db
-    volumes:
-      - ./iot_app:/app
-    networks:
-      - iot_net
-    stdin_open: true
-    tty: true
-
 networks:
   iot_net:
     driver: bridge

@@ -1,14 +1,43 @@
-# MQTT
+# ===============================
+# Core Communication
+# ===============================
+
+# MQTT client for publish/subscribe
 paho-mqtt==1.6.1
 
-# GUI
-PyQt5==5.15.9
-
-# Database
+# MySQL connector for DB interaction
 mysql-connector-python==8.3.0
 
-# Data export & processing
+# ===============================
+# Logging
+# ===============================
+
+# Elegant and color-coded logging
+loguru==0.7.2
+
+# ===============================
+# GUI Options
+# ===============================
+
+# Modern GUI framework (alternative to Tkinter)
+PyQt5==5.15.9
+
+# ===============================
+# Data Handling & Visualization
+# ===============================
+
+# Data manipulation & export to CSV/Excel
 pandas==2.2.2
 
-# Logging
-loguru==0.7.2
+# Plotting library (for charts and visual feedback)
+matplotlib==3.8.4
+
+# Optional: interactive plots in notebooks or PyQt
+seaborn==0.13.2
+
+# ===============================
+# Optional Dev Tools (uncomment to use)
+# ===============================
+# black==24.4.2         # Code formatter
+# isort==5.13.2         # Import sorter
+# pytest==8.2.1         # Testing framework

@@ -36,28 +36,66 @@ IoT_Project_Final/
             📄 93cafd32060e9800b734014d66805399fda26e
         📁 10/
             📄 5ce2da2d6447d11dfe32bfb846c3d5b199fc99
+        📁 11/
+            📄 028b9814d133ee5bb5a05f7d02ebf2622865a0
         📁 1a/
             📄 624d932d023ecccb3d19df76a8494f9aa40463
+        📁 1d/
+            📄 d5766cc6fff51e8cac9570a12f9d6f582d0d48
         📁 20/
             📄 ef093986c66b95db0f75d0b4b6c38dd2de2e7e
         📁 24/
             📄 15ddb501ae7060ac6db0d93c04761a0724c960
         📁 26/
             📄 d33521af10bcc7fd8cea344038eaaeb78d0ef5
+        📁 29/
+            📄 b0feb3ebca870bc9adc44d9ace3f258dc09699
         📁 2d/
             📄 fbb43b29ac12b63e8f8a198728d642bb2afd8e
+        📁 2e/
+            📄 ceee168a0b81784e5688107e9721da1a52eb40
         📁 60/
             📄 9479503dada59667eda99d6a4e988bb0983758
+        📁 6a/
+            📄 4d3308ce9971a62957425cce2bf3ecf9ccc873
+        📁 75/
+            📄 abe2cf6024f801ce04563cee18e071138175a6
+        📁 7c/
+            📄 376056db47d39a18f792d6a032ba95afdaa58d
+        📁 84/
+            📄 37fe66726a74ad9e6a89ed9c73e7a4fee5e64b
+        📁 8c/
+            📄 44d11510fb2ba58b4e91b50e42007f5d8c3563
         📁 93/
             📄 5a1789ad60a4d04a67500dbe116b53dc346f31
         📁 94/
             📄 a25f7f4cb416c083d265558da75d457237d671
         📁 95/
             📄 f47a90e04f4518c940ead5739218f0018935ed
+        📁 ab/
+            📄 7b05fdcb2224d5227a1bed58778988b676ec71
+        📁 ac/
+            📄 f762f2cebeb21543159091e7d0f5e5cc6fb1e0
         📁 b4/
             📄 2fd759313181a1ecb0dd747e25c3b7a3002a2c
+        📁 b6/
+            📄 46288f78b964895bc911b46b1901d34ffc3bbf
+        📁 bd/
+            📄 4ca69cd17f71a9c17274963a1bf8a002cbdb3f
+            📄 8838d0ec824b5e090ac3debfce14277a2a8040
+        📁 c1/
+            📄 1a4312365c8aee8c153f4bfe8718f677b1e2ae
+        📁 c2/
+            📄 07004a9a834a0cb38d68351fd0af4b5244e82f
         📁 c4/
+            📄 0d5e08a19723622213741009bdf70aa462a6ca
             📄 b19925094f304edc5cf05a2bcaccc12bfefb89
+        📁 cf/
+            📄 2b7e11c6ddb129733b00f9cd0916a29f3ca0e5
+        📁 d8/
+            📄 bcc3a3cb8e2ed83bf3c89adb95310ff3033e66
+        📁 df/
+            📄 f18fec53f550110be5b4012786f347db0e2118
         📁 e0/
             📄 2d3338ca63c0e63d79ecde42b90046d5b0b0cc
         📁 e6/
@@ -66,8 +104,14 @@ IoT_Project_Final/
             📄 5a4f276815ff8ed02db59c27c7b9d821525e23
         📁 f1/
             📄 54da2b2e8531d8394a12f552fc24bf76d488b9
+        📁 f5/
+            📄 9ba63e1e50a3bf895f6ca4aea6b3a68573f3aa
         📁 f6/
             📄 086964ecc06d65cf69dbef9c12e31615b20b8b
+            📄 3efa863ab10bcd8143de274241ff63c6a8c66b
+            📄 e6009eb9b58936ae39b8c730563ba02424b740
+        📁 fc/
+            📄 d96609ce74e5f7d6b29c4b8117ab2866c5fa64
         📁 info/
         📁 pack/
     📁 refs/
@@ -87,10 +131,10 @@ IoT_Project_Final/
     📄 modules.xml
     📄 vcs.xml
     📄 workspace.xml
+📄 clean_env.bat
 📄 docker-compose.yml
 📄 generate_tree.py
 📁 iot_app/
-    📄 Dockerfile
     📁 app/
         📄 data_manager.py
         📁 emulators/
@@ -104,6 +148,8 @@ IoT_Project_Final/
         📄 main.py
         📄 mqtt_client.py
         📁 utils/
+            📁 __pycache__/
+                📄 logger.cpython-310.pyc
             📄 logger.py
     📄 requirements.txt
 📁 mosquitto/
@@ -112,3 +158,5 @@ IoT_Project_Final/
         📄 mosquitto.conf
 📁 mysql/
     📄 init.sql
+📄 project_tree.txt
+📄 setup_env.bat
